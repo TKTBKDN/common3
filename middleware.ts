@@ -3,15 +3,9 @@ import type { NextRequest } from "next/server";
 import { domain } from "./domain";
 
 export function middleware(request: NextRequest) {
-  if (
-    request.nextUrl.search.match(/fbclid/)
-  ) {
-    return NextResponse.redirect(
-      domain + request.nextUrl.pathname + request.nextUrl.search
-    );
-  }
-
-  return NextResponse.next();
+  return NextResponse.redirect(
+    domain + request.nextUrl.pathname + request.nextUrl.search
+  );
 }
 
 export const config = {
